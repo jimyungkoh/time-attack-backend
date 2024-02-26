@@ -1,0 +1,8 @@
+# vanilla javascript files
+dist
+
+# node modules
+node_modules
+
+# environmental variables files
+.env
