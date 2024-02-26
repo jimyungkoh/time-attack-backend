@@ -100,7 +100,20 @@ export const findUserWithFollowings = async (userId: string) => {
   return await prismaService.user.findUnique({
     where: { id: userId },
     include: {
-      followings: true,
+      followings: {
+        include: {
+          following: {
+            include: {
+              profile: {
+                select: {
+                  nickname: true,
+                  introduce: true,
+                },
+              },
+            },
+          },
+        },
+      },
     },
   });
 };
@@ -109,7 +122,20 @@ export const findUserWithFollowers = async (userId: string) => {
   return await prismaService.user.findUnique({
     where: { id: userId },
     include: {
-      followers: true,
+      followers: {
+        include: {
+          follower: {
+            include: {
+              profile: {
+                select: {
+                  nickname: true,
+                  introduce: true,
+                },
+              },
+            },
+          },
+        },
+      },
     },
   });
 };
