@@ -5,7 +5,7 @@ import accountsService from "../accounts/service";
 
 const followRouter = Router();
 
-//[POST] /followings/:userId
+// [POST] /followings/:userId
 followRouter.post(
   "/followings/:userId",
   wrapAsync(async (req, res, next) => {
@@ -22,7 +22,7 @@ followRouter.post(
   })
 );
 
-//[DELETE] /followings/:userId
+// [DELETE] /followings/:userId
 followRouter.delete(
   "/followings/:userId",
   wrapAsync(async (req, res, next) => {
@@ -39,7 +39,7 @@ followRouter.delete(
   })
 );
 
-//[DELETE] /followers/:userId
+// [DELETE] /followers/:userId
 followRouter.delete(
   "/followers/:userId",
   wrapAsync(async (req, res, next) => {

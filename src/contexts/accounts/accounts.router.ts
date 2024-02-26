@@ -66,7 +66,7 @@ accountsRouter.post(
   })
 );
 
-//[PUT] /accounts/users
+// [PUT] /accounts/users
 accountsRouter.put(
   "/accounts/users",
   validate(updateProfileSchema),
@@ -102,7 +102,7 @@ accountsRouter.get(
   })
 );
 
-//[GET] /accounts/users/:userId/followings
+// [GET] /accounts/users/:userId/followings
 accountsRouter.get(
   "/users/:userId/followings",
   wrapAsync(async (req, res, next) => {
@@ -116,7 +116,7 @@ accountsRouter.get(
   })
 );
 
-//[GET] /accounts/users/:userId/followers
+// [GET] /accounts/users/:userId/followers
 accountsRouter.get(
   "/users/:userId/followers",
   wrapAsync(async (req, res, next) => {

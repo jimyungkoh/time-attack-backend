@@ -17,7 +17,7 @@ tweetsRouter.get("/tweets", async (req, res, next) => {
   return res.json(tweets);
 });
 
-//[POST] /tweets
+// [POST] /tweets
 tweetsRouter.post(
   "/tweets",
   validate(createTweetSchema),
@@ -34,7 +34,7 @@ tweetsRouter.post(
   })
 );
 
-//[PATCH, DELETE]/tweets/:tweetId
+// [PATCH, DELETE]/tweets/:tweetId
 tweetsRouter.patch(
   "/tweets/:tweetId",
   validate(editTweetSchema),
@@ -69,7 +69,7 @@ tweetsRouter.delete(
   })
 );
 
-//[POST] /tweets/:tweetId/comments
+// [POST] /tweets/:tweetId/comments
 tweetsRouter.post(
   "/tweets/:tweetId/comments",
   validate(tweetCommentSchema),
@@ -91,7 +91,7 @@ tweetsRouter.post(
   })
 );
 
-//[PATCH, DELETE] /tweets/:tweetId/comments/:commentId
+// [PATCH, DELETE] /tweets/:tweetId/comments/:commentId
 tweetsRouter.patch(
   "/tweets/:tweetId/comments/:commentId",
   wrapAsync(async (req, res, next) => {
@@ -138,7 +138,7 @@ tweetsRouter.delete(
   })
 );
 
-//[PUT] /tweets/:tweetId/bookmarks
+// [PUT] /tweets/:tweetId/bookmarks
 tweetsRouter.put(
   "/tweets/:tweetId/bookmarks",
   wrapAsync(async (req, res, next) => {
@@ -155,7 +155,7 @@ tweetsRouter.put(
   })
 );
 
-//[DELETE] /tweets/:tweetId/bookmarks
+// [DELETE] /tweets/:tweetId/bookmarks
 tweetsRouter.delete("/tweets/:tweetId/bookmarks", async (req, res, next) => {
   const tweetId = req.params.tweetId;
   const user = req.user;
