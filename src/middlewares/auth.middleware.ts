@@ -15,8 +15,11 @@ export default wrapAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     req.user = null;
 
-    for (const path of publicPaths)
-      if (path === req.url || req.url.match(path)) return next();
+    for (const path of publicPaths) {
+      if (req.url === "/tweets" && req.method === "GET") return next();
+      if (path === req.url || (req.url.match(path) && req.method === "GET"))
+        return next();
+    }
 
     const accessToken = req.headers.authorization?.split("Bearer ")[1];
     if (!accessToken) throw new UnauthorizedError("로그인 후 이용해주세요");
